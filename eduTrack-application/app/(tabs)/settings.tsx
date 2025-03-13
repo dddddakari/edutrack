@@ -1,29 +1,30 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { Colors } from "react-native/Libraries/NewAppScreen";
-
 
 const SettingsScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Settings</Text>
-      
-      {/* Profile Section with Required Profile Picture*/}
+
+      {/* Profile Section */}
       <TouchableOpacity style={styles.profileSection}>
-        <Image source={require("@/assets/images/placeholder.jpg")} style={styles.profileImage} />
+        <Image
+          source={require("@/assets/images/placeholder.jpg")}
+          style={styles.profileImage}
+        />
         <Text style={styles.signInText}>Sign in or Sign up</Text>
-        <Ionicons name="chevron-forward" size={20} color={Colors} />
+        <Ionicons name="chevron-forward" size={20} color="#17C3B2" />
       </TouchableOpacity>
-      
+
       {/* Settings List */}
       <View style={styles.settingsList}>
-      <SettingsItem icon="settings-outline" label="General" />
+        <SettingsItem icon="settings-outline" label="General" />
         <SettingsItem icon="diamond-outline" label="Pricing" />
         <SettingsItem icon="musical-notes-outline" label="Sounds & Notifications" />
         <SettingsItem icon="time-outline" label="Date & Time" />
       </View>
-      
+
       {/* Other Sections */}
       <View style={styles.settingsList}>
         <SettingsItem icon="help-circle-outline" label="Help & Feedback" />
@@ -36,9 +37,9 @@ const SettingsScreen = () => {
 
 const SettingsItem = ({ icon, label }) => (
   <TouchableOpacity style={styles.settingsItem}>
-    <Ionicons name={icon} size={24} color="#58355E" />
+    <Ionicons name={icon} size={24} color="#17C3B2" />
     <Text style={styles.settingsLabel}>{label}</Text>
-    <Ionicons name="chevron-forward" size={20} color="#58355E" />
+    <Ionicons name="chevron-forward" size={20} color="#17C3B2" />
   </TouchableOpacity>
 );
 
@@ -47,20 +48,27 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: "#D4D2D5",
+    paddingTop: 50,
   },
   header: {
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 20,
+    color: "#58355E",
+    marginBottom: 30,
   },
   profileSection: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: "white",
     padding: 15,
     borderRadius: 10,
     marginBottom: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
   },
   profileImage: {
     width: 50,
@@ -71,14 +79,18 @@ const styles = StyleSheet.create({
   signInText: {
     flex: 1,
     fontSize: 18,
-    fontWeight: "semibold",
-    color: "#58355E"
+    fontWeight: "600",
+    color: "#58355E",
   },
   settingsList: {
-    backgroundColor: "#fff",
+    backgroundColor: "white",
     borderRadius: 10,
     paddingVertical: 10,
     marginBottom: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
   },
   settingsItem: {
     flexDirection: "row",
@@ -91,6 +103,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     marginLeft: 10,
+    color: "#58355E",
   },
 });
 
